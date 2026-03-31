@@ -21,7 +21,6 @@ body{
     text-align: center;
     margin: 4vh;
     border-radius: 8px;
-    imag
 }
 
 .box img{
@@ -50,7 +49,7 @@ body{
     width: 40vh;
     height: 10vh;
     margin-top: 15px;
-    background-color: rgb(34, 11, 117);
+    background-color: rgb(63, 37, 155);
     color: white;
     border: none;
     border-radius: 4px;
@@ -58,5 +57,6 @@ body{
 
 .box button:hover{
     cursor: pointer;
-    background-color: rgb(24, 24, 72);
+    background-color: rgb(36, 36, 122);
+    transition: all 0.3s ease;
 }
