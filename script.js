@@ -57,7 +57,7 @@ function Cria(onload) {
         let ncarac = i + "";
 
     }
-}
+};
 
 btnCarrinho.addEventListener("click", () => {
     //cria o aside
@@ -71,7 +71,42 @@ btnCarrinho.addEventListener("click", () => {
     div.appendChild(btnRemove);
     
     div.classList.add("carrinhoAside")
-})
 
+    //tira o carrinho
+    btnRemove.id = "Remove";
+    let Remove = document.getElementById("Remove");
 
+    Remove.addEventListener("click", () => {
+        div.remove();
+    });
+
+    //adiciona os itens do carrinho
+
+    for(let i = 0; i < carrinho.length; i++) {
+        let box = document.createElement("div");
+        let img = document.createElement("img");
+        let h1 = document.createElement("h1");
+        let span = document.createElement("span");
+
+        box.classList.add("box");
+
+        img.src = carrinho[i].img;
+        h1.innerText = carrinho[i].nome;
+        span.innerText = "R$ " + carrinho[i].preço.toFixed(2);
+
+        box.appendChild(img);
+        box.appendChild(h1);
+        box.appendChild(span);
+        div.appendChild(box);
+        soma += carrinho[i].preço;
+    }
+    preco.innerText = "Total: R$ " + soma.toFixed(2);
+    div.appendChild(preco);
+});
+
+botoesComprar.forEach((btn, index) => {
+    btn.addEventListener("click", () => {
+        carrinho.push(produtos[index]);
+    });
+});
 
