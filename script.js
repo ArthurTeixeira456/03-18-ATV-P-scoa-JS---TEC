@@ -46,22 +46,32 @@ let produtos = [
 
 let carrinho = [];
 
-const btnCarrinhoD = false;
-btnCarrinho.addEventListener('click', () => {
-    if ( btnCarrinhoD = false ){
-        let btnCarrinhoD = true;
-        const aside = document.createElement("aside");
-        aside.innerHTML = `
-            <h2>Carrinho</h2>
-            <ul id="listaCarrinho"></ul>
-            <h3 id="total">Total: R$ 0</h3>
-        `;
-    }else{
-        let btnCarrinhoD = false;
+function Cria(onload) {
+    for(let i = 0; i < produtos.length; i++) {
+        let main = document.getElementById("main");
+        let div = document.createElement("div");
+        let img = document.createElement("img");
+        let h1 = document.createElement("h1");
+        let span = document.createElement("span");
+        let btn = document.createElement("btn");
+        let ncarac = i + "";
+
     }
+}
 
+btnCarrinho.addEventListener("click", () => {
+    //cria o aside
+    let div = document.createElement("div");
+    let body = document.querySelector("#body");
+    let btnRemove = document.createElement("button");
+    let preco = document.createElement("span");
+    let soma = 0;
+
+    body.appendChild(div);
+    div.appendChild(btnRemove);
+    
+    div.classList.add("carrinhoAside")
 })
-
 
 
 
