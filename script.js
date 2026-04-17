@@ -1,112 +1,67 @@
-const botoesComprar = document.querySelectorAll(".box button");
-const btnCarrinho = document.getElementById("btnCarrinho");
+const listaProdutos = document.getElementById('main');
 
-let produtos = [
-    {
-        img: "img/Sushovo.jpg",
-        nome: "Shusovo de Páscoa",
-        preço: 318.90,
-    },
-    {
-        img: "img/Coxovo.jpg",
-        nome: "Coxovo de Páscoa",
-        preço: 229.99,
-    },
-    {
-        img: "img/Pudovo.jpg",
-        nome: "Pudovo de Páscoa",
-        preço: 202.99,
-    },
-    {
-        img: "img/Sonho de Valsa.jpg",
-        nome: "Sonho de Vara",
-        preço: 199.99,
-    },
-    {
-        img: "img/Leite de Moça.jpg",
-        nome: "Ovo Leite de Moço",
-        preço: 209.99,
-    },
-    {
-        img: "img/Ovo Kids.png",
-        nome: "Ovo Kids Chocolate",
-        preço: 227.99,
-    },
-    {
-        img: "img/Garoto Amargo.jpg",
-        nome: "Ovo Garoto Jeba Torta",
-        preço: 328.99,
-    },
-    {
-        img: "img/Labubu Ovo.webp",
-        nome: "Ovo Labubu",
-        preço: 666.67,
-    },
-];
+let conteudoProdutos = '';
 
-let carrinho = [];
+let contador = 0;
+produtos.forEach(produto => {
+    conteudoProdutos = conteudoProdutos + `
+        <div class="produtos">
+            <img src="${produto.img}" alt="${produto.nome}">
+            <h2>${produto.nome}</h2>
+            <p>R$ ${produto.preco}</p>
+            <button class="btAddCarrinho" value="${contador}">Comprar</button>
+        </div>
+    `;
+    contador++;
+});
+listaProdutos.innerHTML = conteudoProdutos;
 
-function Cria(onload) {
-    for(let i = 0; i < produtos.length; i++) {
-        let main = document.getElementById("main");
-        let div = document.createElement("div");
-        let img = document.createElement("img");
-        let h1 = document.createElement("h1");
-        let span = document.createElement("span");
-        let btn = document.createElement("btn");
-        let ncarac = i + "";
+let btnAddCarrinho = document.querySelectorAll('.btAddCarrinho');
 
-    }
-};
 
-btnCarrinho.addEventListener("click", () => {
-    //cria o aside
-    let div = document.createElement("div");
-    let body = document.querySelector("#body");
-    let btnRemove = document.createElement("button");
-    let preco = document.createElement("span");
-    let soma = 0;
 
-    body.appendChild(div);
-    div.appendChild(btnRemove);
-    
-    div.classList.add("carrinhoAside")
+//faz carrinho aparecer
+const btnCarrinho = document.getElementById('btnCarrinho');
+const listaCarrinho = document.getElementById('listaCarrinho');
+const fechaCarrinho = document.getElementById('fechaCarrinho');
 
-    //tira o carrinho
-    btnRemove.id = "Remove";
-    let Remove = document.getElementById("Remove");
-
-    Remove.addEventListener("click", () => {
-        div.remove();
-    });
-
-    //adiciona os itens do carrinho
-
-    for(let i = 0; i < carrinho.length; i++) {
-        let box = document.createElement("div");
-        let img = document.createElement("img");
-        let h1 = document.createElement("h1");
-        let span = document.createElement("span");
-
-        box.classList.add("box");
-
-        img.src = carrinho[i].img;
-        h1.innerText = carrinho[i].nome;
-        span.innerText = "R$ " + carrinho[i].preço.toFixed(2);
-
-        box.appendChild(img);
-        box.appendChild(h1);
-        box.appendChild(span);
-        div.appendChild(box);
-        soma += carrinho[i].preço;
-    }
-    preco.innerText = "Total: R$ " + soma.toFixed(2);
-    div.appendChild(preco);
+btnCarrinho.addEventListener('click', () => {
+    listaCarrinho.classList.remove('ocultaCarrinho');
+    listaCarrinho.classList.add('mostraCarrinho');
+    const precos = document.querySelectorAll('.preco');
+        let somaTotal = 0;
+        precos.forEach(preco => {
+        somaTotal += parseFloat(preco.innerText.replace('R$', '').replace(',', '.'));
+        });
+        const precoTotal = document.createElement('p');
+        precoTotal.classList.add('precoTotal');
+        precoTotal.innerText = `Total: R$ ${somaTotal.toFixed(2)}`;
+        listaCarrinho.appendChild(precoTotal);
 });
 
-botoesComprar.forEach((btn, index) => {
-    btn.addEventListener("click", () => {
-        carrinho.push(produtos[index]);
-    });
+//faz carrinho desaparecer
+fechaCarrinho.addEventListener('click', () => {
+    listaCarrinho.classList.remove('mostraCarrinho');
+    listaCarrinho.classList.add('ocultaCarrinho');
+    const precoTotal = document.querySelector('.precoTotal');
+    if (precoTotal) {
+        precoTotal.remove();
+    }
 });
 
+//adiciona produtos ao carrinho
+btnAddCarrinho.forEach(botao => {
+        botao.addEventListener('click', () => {
+        const produto = produtos[botao.value];
+        const boxCarrinho = document.createElement('div');
+        boxCarrinho.classList.add('boxCarrinho');
+        boxCarrinho.innerHTML = `
+            <img src="${produto.img}" alt="${produto.nome}">
+            <h2>${produto.nome}</h2>
+            <p class="preco">R$ ${produto.preco}</p>
+        `;
+        const preco = boxCarrinho.querySelector('.preco');
+        preco.innerText = preco.innerText.replace(',', '.');
+        listaCarrinho.appendChild(boxCarrinho);
+    });
+});

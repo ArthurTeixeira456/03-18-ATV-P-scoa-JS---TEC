@@ -102,7 +102,7 @@ body{
     padding: 15px;
     transition: 0.3s;
     overflow-y: auto;
-    float: inline-end;
+    float: left;
     margin-left: 935px;
     align-content: center;
     justify-content: center;
@@ -128,6 +128,20 @@ body{
     transition: all 0.3s ease;
 }
 
+.carrinhoAside .preco{
+    font-size: 20px;
+    color: white;
+    font-weight: 400;
+}
+
+.carrinhoAside span{
+    color: white;
+    font-size: 28px;
+    top: 0;
+    position: fixed;
+    margin-left: 40px;
+}
+
 .carrinhoAside .box{
     width: 98%;
     height: 200px;
@@ -135,6 +149,8 @@ body{
     margin: 0;
     margin-bottom: 10px;
     border-radius: 0;
+    margin-top: 40px;
+    margin-bottom: -20px;
 }
 
 .carrinhoAside .box img{
@@ -142,3 +158,52 @@ body{
     height: 88px;
     border-radius: 0;
 }
+
+aside{
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100%;
+    background-color: rgb(56, 56, 147);
+    padding: 15px;
+    transition: 0.3s;
+    overflow-y: auto;
+    float: left;
+    margin-left: 935px;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+#fechaCarrinho{
+    color: white;
+    font-size: 28px;
+    top: 0;
+    position: fixed;
+}
+
+.ocultaCarrinho{
+    display: none;
+}
+
+.mostraCarrinho{
+    display: block;
+}
+
+main #listaProdutos{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+main #listaProdutos .produtos{
+    width: 300px;
+    height: 350px;
+    display: block;
+    float: left;
+}
+
+main #listaProdutos .produtos img{
+    width: 80%;
+}   
