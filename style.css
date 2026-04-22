@@ -31,7 +31,7 @@ header{
 }
 
 body{
-    background-color: rgb(210, 220, 228);
+    background-color: rgb(175, 198, 217);
     display: block;
     justify-content: left;
     align-items: first baseline;
@@ -39,131 +39,11 @@ body{
     color: rgb(28, 27, 40);
 }
 
-.box{
-    background-color: rgb(159, 159, 217);
-    width: 55vh;
-    height: 70vh;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    display: block;
-    margin: 1vh;
-    margin-top: 2vh;
-    border-radius: 8px;
-    float: left;
-}
-
-.box img{
-    margin-top: 10px;
-    border-radius: 6px;
-    width: 285px;
-    height: 185px;
-}
-
-.box h2{
-    margin-top: 10px;
-    margin-bottom: 5px;
-    font-size: 28px;
-}
-
-.box p{
-    font-size: 20px;
-    color: rgb(6, 73, 9);
-}
-
-.box .juros{
-    font-weight: 800;
-    font-size: 15px;
-    color: rgb(190, 56, 56);
-}
-
-.box button{
-    width: 40vh;
-    height: 10vh;
-    margin-top: 15px;
-    background-color: rgb(63, 37, 155);
-    color: white;
-    border: none;
-    border-radius: 4px;
-}
-
-.box button:hover{
-    cursor: pointer;
-    background-color: rgb(36, 36, 122);
-    transition: all 0.3s ease;
-}
-
-.carrinhoAside{
-    position: fixed;
-    top: 0;
-    width: 300px;
-    height: 100%;
-    background-color: rgb(56, 56, 147);
-    padding: 15px;
-    transition: 0.3s;
-    overflow-y: auto;
-    float: left;
-    margin-left: 935px;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
-}
-
-.carrinhoAside button{
-    width: 50px;
-    height: 50px;
-    background-image: url(img/carrinho-de-compras.png);
-    background-size: cover;
-    background-color: rgb(56, 56, 147);
-    border: 0;
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 935px;
-}
-
-.carrinhoAside button:hover{
-    cursor: pointer;
-    background-color: rgb(36, 36, 122);
-    transition: all 0.3s ease;
-}
-
-.carrinhoAside .preco{
-    font-size: 20px;
-    color: white;
-    font-weight: 400;
-}
-
-.carrinhoAside span{
-    color: white;
-    font-size: 28px;
-    top: 0;
-    position: fixed;
-    margin-left: 40px;
-}
-
-.carrinhoAside .box{
-    width: 98%;
-    height: 200px;
-    display: block;
-    margin: 0;
-    margin-bottom: 10px;
-    border-radius: 0;
-    margin-top: 40px;
-    margin-bottom: -20px;
-}
-
-.carrinhoAside .box img{
-    width: 100%;
-    height: 88px;
-    border-radius: 0;
-}
-
 aside{
     position: fixed;
     top: 0;
     right: 0;
-    width: 300px;
+    width: 450px;
     height: 100%;
     background-color: rgb(56, 56, 147);
     padding: 15px;
@@ -189,6 +69,7 @@ aside{
 
 .mostraCarrinho{
     display: block;
+    float: left;
 }
 
 main #listaProdutos{
@@ -197,13 +78,79 @@ main #listaProdutos{
     justify-content: space-between;
 }
 
-main #listaProdutos .produtos{
-    width: 300px;
+.produtos{
+    width: 276px;
     height: 350px;
     display: block;
     float: left;
+    background-color: rgb(56, 56, 147);
+    margin: 20px;
+    align-items: center;
+    text-align: center;
+    border-radius: 10px;
 }
 
-main #listaProdutos .produtos img{
-    width: 80%;
-}   
+.produtos img{
+    width: 95%;
+    height: 200px;
+    margin: 6px
+}  
+
+.produtos h2{
+    color: rgb(213, 230, 231);
+    font-size: 20px;
+}
+
+.produtos .preco{
+    color: rgb(132, 232, 132);
+    font-size: 18px;
+    margin-top: 10px;
+}
+.produtos button{
+    width: 200px;
+    height: 40px;
+    background-color: rgb(92, 92, 218);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.produtos button:hover{
+    cursor: pointer;
+    background-color: rgb(72, 72, 148);
+}
+
+.boxCarrinho{
+    width: 100%;
+    height: 120px;
+    background-color: rgb(92, 92, 218);
+    margin-bottom: 10px;
+    display: block;
+    border-radius: 10px;
+    float: left;
+}
+
+.boxCarrinho img{
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    float: left;
+}
+
+.boxCarrinho h2{
+    color: rgb(213, 230, 231);
+    font-size: 18px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.precoTotal{
+    color: rgb(132, 232, 132);
+    font-size: 20px;
+    margin-top: 10px;
+    text-align: center;
+    position: fixed;
+    margin-top: -280px;
+    margin-left: 300px;
+}
