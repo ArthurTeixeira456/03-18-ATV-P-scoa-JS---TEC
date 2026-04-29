@@ -41,5 +41,5 @@ const produtos = [
     },
 ];
 
-//coleção de produtos do carrinho, inicialmente vazio
+//coleção de produtos do carrinho (primeiro fica vazio)
 const colecaoCarrinho = [];
