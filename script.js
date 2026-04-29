@@ -62,3 +62,11 @@ btnAddCarrinho.forEach(btn => {
     });
 });
 
+//calcula preço total do carrinho
+function calculaPrecoTotal() {
+    let somaTotal = 0;
+    const precos = document.querySelectorAll('.boxCarrinho .preco');
+    precos.forEach(preco => {
+        const valor = parseFloat(preco.innerText.replace('R$ ', ''));
+        somaTotal += valor;
+    });
